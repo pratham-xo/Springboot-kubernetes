@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-app
+  template:
+    metadata:
+      labels:
+        app: springboot-app
+    spec:
+      containers:
+      - name: springboot-app
+        image: pratham0610/springboot-crud-k8s:v2
+        ports:
+          - containerPort: 8080
+
+        env:
+        - name: DB_HOST
+          value: mysql-service
+
+        - name: DB_NAME
+          value: employee_db
+
+        - name: DB_USERNAME
+          value: root
+
+        - name: DB_PASSWORD
+          value: root12
+        
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:mysql://mysql-service:3306/employee_db"
