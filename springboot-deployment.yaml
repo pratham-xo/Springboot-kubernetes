@@ -29,7 +29,7 @@ spec:
           value: root
 
         - name: DB_PASSWORD
-          value: root12
+          value: root123
         
         - name: SPRING_DATASOURCE_URL
           value: "jdbc:mysql://mysql-service:3306/employee_db"
