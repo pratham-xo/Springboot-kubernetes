@@ -146,28 +146,6 @@ kubectl get pods
 
 ---
 
-## 🔄 Rolling Updates
-
-```bash
-docker build -t <dockerhub-username>/springboot-app:v2 .
-docker push <dockerhub-username>/springboot-app:v2
-
-kubectl set image deployment/springboot-deployment \
-springboot-app=<dockerhub-username>/springboot-app:v2
-
-kubectl rollout status deployment/springboot-deployment
-```
-
----
-
-## ⏪ Rollback
-
-```bash
-kubectl rollout undo deployment/springboot-deployment
-```
-
----
-
 ## 📊 Monitoring
 
 ```bash
@@ -178,26 +156,11 @@ kubectl logs <pod-name>
 
 ---
 
-## 🧹 Cleanup
-
-```bash
-kubectl delete -f springboot-deployment.yaml
-kubectl delete -f springboot-service.yaml
-kubectl delete -f mysqldeployment.yaml
-kubectl delete -f mysqlservice.yaml
-kubectl delete -f mysql-pvc.yaml
-
-minikube stop
-minikube delete
-```
-
----
-
 ## 📈 Learning Outcomes
 
 - Docker containerization
 - Kubernetes deployments & services
-- Persistent storage (PV/PVC)
+- Persistent storage
 - Networking & port forwarding
 - Minikube on AWS EC2
 - Real-world DevOps workflow
